@@ -1,238 +1,234 @@
-# 🏗️ Microservices Architecture
+# 🏗️ Arquitectura de Microservicios
 
-4 projects demonstrating Spring Cloud microservices architecture patterns, 
-distributed systems design, and centralized configuration management.
+4 proyectos que demuestran patrones de arquitectura de microservicios con Spring Cloud, diseño de sistemas distribuidos y gestión centralizada de configuración.
 
-## 📚 Projects List
+## 📚 Lista de Proyectos
 
-### Infrastructure & Configuration
+### Infraestructura y Configuración
 
-- **[config-server-repo](https://github.com/Cortadai/config-server-repo)**
-  Centralized Configuration Server for Microservices
-  - Technology: Spring Boot, Spring Cloud Config
-  - Purpose: Centralized management of microservice configurations
-  - Scope: 3 main services (Employee, Department, Organization)
-  - Data: `.properties` files for each service
-  - Services Configured:
-    - Employee Service (port 8081) → employee_db
-    - Department Service (default port) → department_db
-    - Organization Service (port 8083) → organization_db
-  - Pattern: Spring Cloud Config Server
-  - Benefit: Change configuration without redeploying services
-  - Use case: Environment-specific configs (dev, test, prod)
+- **[config-server-repo](https://github.com/Cortadai/config-server-repo)**  
+  Servidor de Configuración Centralizada para Microservicios
+  - Tecnología: Spring Boot, Spring Cloud Config
+  - Propósito: Gestión centralizada de configuraciones de microservicios
+  - Alcance: 3 servicios principales (Employee, Department, Organization)
+  - Datos: Archivos `.properties` para cada servicio
+  - Servicios Configurados:
+    - Employee Service (puerto 8081) → employee_db
+    - Department Service (puerto por defecto) → department_db
+    - Organization Service (puerto 8083) → organization_db
+  - Patrón: Spring Cloud Config Server
+  - Beneficio: Cambiar configuración sin redesplegar servicios
+  - Caso de uso: Configuraciones específicas por entorno (dev, test, prod)
 
-- **[servicio-items-config](https://github.com/Cortadai/servicio-items-config)** (Private)
-  Configuration Repository for Items Service
-  - Technology: Configuration files (`.properties`)
-  - Purpose: Properties storage for Items/Products microservice
-  - Status: Private repository
-  - Type: Config server repository (Git-based)
-  - Usage: Referenced by config-server-repo
+- **[servicio-items-config](https://github.com/Cortadai/servicio-items-config)** (Privado)  
+  Repositorio de Configuración para el Servicio de Items
+  - Tecnología: Archivos de configuración (`.properties`)
+  - Propósito: Almacenamiento de propiedades para microservicio Items/Productos
+  - Estado: Repositorio privado
+  - Tipo: Repositorio de servidor de configuración (basado en Git)
+  - Uso: Referenciado por config-server-repo
 
-### Complete Microservices Systems
+### Sistemas Completos de Microservicios
 
-- **[springboot-microservices](https://github.com/Cortadai/springboot-microservices)**
-  Complete Microservices Ecosystem (Full Stack)
-  - Technology: Spring Boot, Spring Cloud, MySQL, Docker
-  - Scope: 3 microservices + infrastructure services
+- **[springboot-microservices](https://github.com/Cortadai/springboot-microservices)**  
+  Ecosistema Completo de Microservicios (Full Stack)
+  - Tecnología: Spring Boot, Spring Cloud, MySQL, Docker
+  - Alcance: 3 microservicios + servicios de infraestructura
   
-  **Core Microservices:**
-  1. Employee Service (port 8081)
-     - Database: MySQL (employee_db)
-     - Operations: Employee CRUD
+  **Microservicios Core:**
+  1. Employee Service (puerto 8081)
+     - Base de datos: MySQL (employee_db)
+     - Operaciones: CRUD de empleados
   
-  2. Department Service (default port)
-     - Database: MySQL (department_db)
-     - Operations: Department management
+  2. Department Service (puerto por defecto)
+     - Base de datos: MySQL (department_db)
+     - Operaciones: Gestión de departamentos
   
-  3. Organization Service (port 8083)
-     - Database: MySQL (organization_db)
-     - Operations: Organization management
+  3. Organization Service (puerto 8083)
+     - Base de datos: MySQL (organization_db)
+     - Operaciones: Gestión de organizaciones
   
-  **Infrastructure Services:**
-  - **Service Registry (Eureka)** - Port 8761
-    - Auto-discovery of microservices
-    - Load balancing
-    - Health checking
+  **Servicios de Infraestructura:**
+  - **Service Registry (Eureka)** - Puerto 8761
+    - Autodescubrimiento de microservicios
+    - Balanceo de carga
+    - Comprobación de salud
   
-  - **Config Server** - Port 8888
-    - Centralized configuration
-    - Dynamic property updates
-    - Environment separation
+  - **Config Server** - Puerto 8888
+    - Configuración centralizada
+    - Actualizaciones dinámicas de propiedades
+    - Separación por entornos
   
   - **API Gateway (Zuul/Spring Cloud Gateway)**
-    - Single entry point for clients
-    - Routing to appropriate services
-    - Load balancing
-    - Request filtering
+    - Punto de entrada único para clientes
+    - Enrutamiento a servicios apropiados
+    - Balanceo de carga
+    - Filtrado de peticiones
   
-  **Advanced Features:**
-  - **Communication Patterns:**
-    - RestTemplate (Synchronous)
-    - WebClient (Non-blocking)
-    - OpenFeign (Declarative HTTP client)
+  **Características Avanzadas:**
+  - **Patrones de Comunicación:**
+    - RestTemplate (Síncrono)
+    - WebClient (No bloqueante)
+    - OpenFeign (Cliente HTTP declarativo)
   
-  - **Resilience Patterns:**
+  - **Patrones de Resiliencia:**
     - Circuit Breaker (Hystrix/Resilience4J)
-    - Retry mechanism
+    - Mecanismo de reintentos
     - Rate Limiter
-    - Timeout management
+    - Gestión de timeouts
   
-  - **Observability:**
-    - Distributed tracing with Zipkin
-    - Centralized logging
-    - Metrics with Micrometer
+  - **Observabilidad:**
+    - Trazabilidad distribuida con Zipkin
+    - Logging centralizado
+    - Métricas con Micrometer
   
-  - **Messaging:**
-    - RabbitMQ integration
-    - Spring Cloud Bus for config refresh
-    - Event-driven communication
+  - **Mensajería:**
+    - Integración con RabbitMQ
+    - Spring Cloud Bus para refresco de configuración
+    - Comunicación orientada a eventos
   
-  - **Documentation:**
+  - **Documentación:**
     - SpringDoc OpenAPI (Swagger)
-    - Auto-generated API documentation
+    - Documentación de API autogenerada
   
-  - **Deployment:**
-    - Docker Compose for local development
-    - Container orchestration
-    - Network configuration
+  - **Despliegue:**
+    - Docker Compose para desarrollo local
+    - Orquestación de contenedores
+    - Configuración de red
   
-  Use case: Reference implementation of production-grade microservices
+  Caso de uso: Implementación de referencia de microservicios de grado de producción
 
-- **[springcloud](https://github.com/Cortadai/springcloud)**
-  Spring Cloud Microservices System (Legacy - Greenwich)
-  - Technology: Spring Cloud Greenwich, Spring Boot, Docker
-  - Status: Legacy but fully functional
-  - Version: Spring Cloud Greenwich
+- **[springcloud](https://github.com/Cortadai/springcloud)**  
+  Sistema de Microservicios Spring Cloud (Legacy - Greenwich)
+  - Tecnología: Spring Cloud Greenwich, Spring Boot, Docker
+  - Estado: Legacy pero totalmente funcional
+  - Versión: Spring Cloud Greenwich
   
-  **Architecture Components:**
+  **Componentes de Arquitectura:**
   
-  **Infrastructure Services:**
+  **Servicios de Infraestructura:**
   - **Eureka Server** - Service Registry
-    - Central service discovery
-    - Heartbeat monitoring
+    - Descubrimiento centralizado de servicios
+    - Monitorización de latidos (heartbeat)
   
-  - **Config Server** - Centralized Configuration
-    - Git-based configuration
-    - Dynamic updates
+  - **Config Server** - Configuración Centralizada
+    - Configuración basada en Git
+    - Actualizaciones dinámicas
   
   - **Zuul Gateway** - API Gateway
-    - Request routing
-    - Load balancing
+    - Enrutamiento de peticiones
+    - Balanceo de carga
   
-  **Business Microservices:**
+  **Microservicios de Negocio:**
   - **Products Service**
-    - Product catalog management
+    - Gestión de catálogo de productos
   
   - **Items Service**
-    - Item/Stock management
+    - Gestión de items/stock
   
   - **Users Service**
-    - User management
+    - Gestión de usuarios
   
   - **OAuth Service**
-    - Authentication & authorization
+    - Autenticación y autorización
   
-  **Advanced Features:**
-  - **Resilience:**
-    - Hystrix circuit breakers
-    - Fallback mechanisms
+  **Características Avanzadas:**
+  - **Resiliencia:**
+    - Circuit breakers con Hystrix
+    - Mecanismos de fallback
   
-  - **Communication:**
-    - OpenFeign for service-to-service calls
-    - Fault tolerance
+  - **Comunicación:**
+    - OpenFeign para llamadas entre servicios
+    - Tolerancia a fallos
   
-  - **Distributed Tracing:**
-    - Zipkin integration
-    - Request flow visualization
+  - **Trazabilidad Distribuida:**
+    - Integración con Zipkin
+    - Visualización de flujo de peticiones
   
-  - **Messaging:**
-    - RabbitMQ for async communication
+  - **Mensajería:**
+    - RabbitMQ para comunicación asíncrona
   
-  - **Security:**
-    - OAuth2 integration
-    - JWT tokens
-    - Role-based access control
+  - **Seguridad:**
+    - Integración con OAuth2
+    - Tokens JWT
+    - Control de acceso basado en roles
   
-  - **Databases:**
-    - MySQL for business data
-    - PostgreSQL for users/auth
+  - **Bases de Datos:**
+    - MySQL para datos de negocio
+    - PostgreSQL para usuarios/autenticación
   
-  - **Containerization:**
-    - Docker containers for each service
-    - Docker Compose orchestration
+  - **Contenerización:**
+    - Contenedores Docker para cada servicio
+    - Orquestación con Docker Compose
   
-  Note: Uses older Spring Cloud version (Greenwich).
-  For new projects, consider using current versions.
+  Nota: Usa versión antigua de Spring Cloud (Greenwich).  
+  Para proyectos nuevos, considerar usar versiones actuales.
 
 ---
 
-## 🏗️ Microservices Architecture Patterns
+## 🏗️ Patrones de Arquitectura de Microservicios
 
-### Service Registry Pattern (Eureka)
-
+### Patrón Service Registry (Eureka)
 ```
 ┌─────────────────────────────────────────┐
-│         Eureka Service Registry         │
-│  (Service Discovery & Registration)     │
+│     Eureka Service Registry             │
+│  (Descubrimiento y Registro)            │
 ├─────────────────────────────────────────┤
-│ Registered Services:                    │
+│ Servicios Registrados:                  │
 │ ├─ Employee Service (8081)              │
 │ ├─ Department Service (8082)            │
 │ ├─ Organization Service (8083)          │
 │ └─ API Gateway (8080)                   │
 │                                         │
-│ Provides:                               │
-│ ├─ Service location discovery           │
-│ ├─ Load balancing                       │
-│ └─ Health checking                      │
+│ Proporciona:                            │
+│ ├─ Descubrimiento de localización       │
+│ ├─ Balanceo de carga                    │
+│ └─ Comprobación de salud                │
 └─────────────────────────────────────────┘
 ```
 
-### Config Server Pattern
-
+### Patrón Config Server
 ```
 ┌──────────────────────────────────────┐
 │    Config Server                     │
-│    (Centralized Configuration)       │
+│    (Configuración Centralizada)      │
 ├──────────────────────────────────────┤
-│ Git Repository:                      │
+│ Repositorio Git:                     │
 │ ├─ application.properties            │
 │ ├─ application-dev.properties        │
 │ ├─ application-prod.properties       │
-│ └─ service-specific configs          │
+│ └─ configs específicos por servicio  │
 │                                      │
-│ Provides configs to:                 │
+│ Proporciona configs a:               │
 │ ├─ Employee Service                  │
 │ ├─ Department Service                │
 │ ├─ Organization Service              │
-│ └─ ... other services                │
+│ └─ ... otros servicios               │
 │                                      │
-│ Benefits:                            │
-│ ├─ No redeploy needed for config     │
-│ ├─ Environment separation            │
-│ └─ Version control for configs       │
+│ Beneficios:                          │
+│ ├─ Sin redespliegue para cambios     │
+│ ├─ Separación por entornos           │
+│ └─ Control de versiones para configs │
 └──────────────────────────────────────┘
 ```
 
-### API Gateway Pattern
-
+### Patrón API Gateway
 ```
 ┌──────────────────┐
-│     Clients      │
+│     Clientes     │
 │  (Frontend/Apps) │
 └────────┬─────────┘
          │
          ▼
 ┌──────────────────────────────┐
 │   API Gateway / Zuul         │
-│  (Single Entry Point)        │
+│  (Punto de Entrada Único)    │
 │                              │
-│  - Route requests            │
-│  - Load balance              │
-│  - Rate limit                │
-│  - Filter/Transform          │
-│  - Monitor requests          │
+│  - Enrutamiento              │
+│  - Balanceo de carga         │
+│  - Rate limiting             │
+│  - Filtrado/Transformación   │
+│  - Monitorización            │
 └──────┬───────┬────────┬──────┘
        │       │        │
        ▼       ▼        ▼
@@ -242,229 +238,224 @@ distributed systems design, and centralized configuration management.
 └─────────┘ └─────────┘ └──────────┘
 ```
 
-### Service-to-Service Communication
-
+### Comunicación Entre Servicios
 ```
-Service A (OpenFeign Client)
+Servicio A (Cliente OpenFeign)
     │
-    ├─ Query Eureka: "Find Service B"
+    ├─ Consulta Eureka: "Buscar Servicio B"
     │
-    ├─ Get Service B address
+    ├─ Obtener dirección del Servicio B
     │
-    ├─ Make REST call to Service B
+    ├─ Realizar llamada REST al Servicio B
     │
-    ├─ Circuit Breaker wraps call
-    │   ├─ If success → return response
-    │   └─ If failure → fallback mechanism
+    ├─ Circuit Breaker envuelve la llamada
+    │   ├─ Si éxito → devolver respuesta
+    │   └─ Si fallo → mecanismo de fallback
     │
-    └─ Retry with backoff if needed
+    └─ Reintentar con backoff si es necesario
 ```
 
 ---
 
-## 📊 Project Comparison
+## 📊 Comparativa de Proyectos
 
-| Feature | springboot-microservices | springcloud |
-|---------|--------------------------|-------------|
-| **Version** | Latest | Greenwich (Legacy) |
-| **Services** | 3 core + infrastructure | 4 core + infrastructure |
+| Característica | springboot-microservices | springcloud |
+|----------------|--------------------------|-------------|
+| **Versión** | Última | Greenwich (Legacy) |
+| **Servicios** | 3 core + infraestructura | 4 core + infraestructura |
 | **Service Registry** | Eureka | Eureka |
 | **Config Server** | Spring Cloud Config | Spring Cloud Config |
 | **API Gateway** | Spring Cloud Gateway | Zuul |
 | **Circuit Breaker** | Resilience4J | Hystrix |
-| **Tracing** | Zipkin | Zipkin |
-| **Messaging** | RabbitMQ + Spring Cloud Bus | RabbitMQ |
-| **Databases** | MySQL (all) | MySQL + PostgreSQL |
-| **Recommended** | ✅ Yes (modern) | ⚠️ Legacy (reference) |
+| **Trazabilidad** | Zipkin | Zipkin |
+| **Mensajería** | RabbitMQ + Spring Cloud Bus | RabbitMQ |
+| **Bases de Datos** | MySQL (todas) | MySQL + PostgreSQL |
+| **Recomendado** | ✅ Sí (moderno) | ⚠️ Legacy (referencia) |
 
 ---
 
-## 🛠️ Technologies Stack
+## 🛠️ Stack Tecnológico
 
-### Framework & Runtime
-- **Spring Boot 2.7+** / **Spring Boot 3.x** - Application framework
-- **Java 11+** / **Java 17+** - Programming language
-- **Tomcat** - Embedded web server
+### Framework y Runtime
+- **Spring Boot 2.7+** / **Spring Boot 3.x** - Framework de aplicación
+- **Java 11+** / **Java 17+** - Lenguaje de programación
+- **Tomcat** - Servidor web embebido
 
-### Spring Cloud Components
-- **Eureka** - Service registry and discovery
-- **Config Server** - Centralized configuration management
+### Componentes Spring Cloud
+- **Eureka** - Registro y descubrimiento de servicios
+- **Config Server** - Gestión centralizada de configuración
 - **Spring Cloud Gateway / Zuul** - API Gateway
-- **OpenFeign** - Declarative HTTP client
+- **OpenFeign** - Cliente HTTP declarativo
 - **Hystrix / Resilience4J** - Circuit breakers
-- **Spring Cloud Bus** - Configuration refresh
-- **Ribbon** - Client-side load balancing (Eureka)
+- **Spring Cloud Bus** - Refresco de configuración
+- **Ribbon** - Balanceo de carga del lado del cliente (Eureka)
 
-### Data Access
-- **Spring Data JPA** - Data repository abstraction
+### Acceso a Datos
+- **Spring Data JPA** - Abstracción de repositorios de datos
 - **Hibernate** - ORM (Object-Relational Mapping)
-- **MySQL 8** - Primary database
-- **PostgreSQL** - Alternative/secondary database
+- **MySQL 8** - Base de datos principal
+- **PostgreSQL** - Base de datos alternativa/secundaria
 
-### Observability
-- **Zipkin** - Distributed tracing
-- **Spring Cloud Sleuth** - Trace correlation
-- **Micrometer** - Metrics collection
-- **ELK Stack** - Logging (optional)
+### Observabilidad
+- **Zipkin** - Trazabilidad distribuida
+- **Spring Cloud Sleuth** - Correlación de trazas
+- **Micrometer** - Recolección de métricas
+- **ELK Stack** - Logging (opcional)
 
-### Messaging
+### Mensajería
 - **RabbitMQ** - Message broker
-- **Spring Cloud Bus** - Config refresh notifications
-- **Spring AMQP** - RabbitMQ integration
+- **Spring Cloud Bus** - Notificaciones de refresco de configuración
+- **Spring AMQP** - Integración con RabbitMQ
 
-### Development & Deployment
-- **Maven** - Build tool
-- **Docker** - Containerization
-- **Docker Compose** - Container orchestration
-- **Git** - Version control
+### Desarrollo y Despliegue
+- **Maven** - Herramienta de construcción
+- **Docker** - Contenerización
+- **Docker Compose** - Orquestación de contenedores
+- **Git** - Control de versiones
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Inicio Rápido
 
-### Prerequisites
+### Prerrequisitos
 ```bash
 Java 11+
 Maven 3.6+
 Docker & Docker Compose
-MySQL 8 (or Docker)
-RabbitMQ (or Docker)
+MySQL 8 (o Docker)
+RabbitMQ (o Docker)
 ```
 
-### Start All Services (Recommended: Docker Compose)
-
+### Iniciar Todos los Servicios (Recomendado: Docker Compose)
 ```bash
 git clone https://github.com/Cortadai/springboot-microservices.git
 cd springboot-microservices
 
-# Start all services
+# Iniciar todos los servicios
 docker-compose up -d
 
-# Services available at:
-# - Eureka Dashboard: http://localhost:8761
+# Servicios disponibles en:
+# - Dashboard Eureka: http://localhost:8761
 # - API Gateway: http://localhost:8080
 # - Employee Service: http://localhost:8081
 # - Config Server: http://localhost:8888
 # - RabbitMQ: http://localhost:15672
 ```
 
-### Start Individual Service
-
+### Iniciar Servicio Individual
 ```bash
-# Build all
+# Construir todo
 mvn clean install
 
-# Run Employee Service
+# Ejecutar Employee Service
 mvn -pl employee-service spring-boot:run
 
-# Run Department Service
+# Ejecutar Department Service
 mvn -pl department-service spring-boot:run
 
-# Run Organization Service
+# Ejecutar Organization Service
 mvn -pl organization-service spring-boot:run
 
-# Run API Gateway
+# Ejecutar API Gateway
 mvn -pl api-gateway spring-boot:run
 ```
 
-### Test the System
-
+### Probar el Sistema
 ```bash
-# Get all employees through gateway
+# Obtener todos los empleados a través del gateway
 curl http://localhost:8080/api/employees
 
-# Get specific employee
+# Obtener empleado específico
 curl http://localhost:8080/api/employees/1
 
-# Create new employee
+# Crear nuevo empleado
 curl -X POST http://localhost:8080/api/employees \
   -H "Content-Type: application/json" \
   -d '{"name":"John","department":"HR"}'
 
-# Check service registry (Eureka)
-# Open browser: http://localhost:8761
+# Comprobar registro de servicios (Eureka)
+# Abrir navegador: http://localhost:8761
 ```
 
 ---
 
-## 🎯 Learning Path
+## 🎯 Ruta de Aprendizaje
 
-### Week 1: Foundation
+### Semana 1: Fundamentos
 
-#### Day 1-2: Understanding Microservices
-- What are microservices?
-- Monolithic vs Microservices
-- Benefits and challenges
-- When to use microservices
+#### Día 1-2: Entendiendo Microservicios
+- ¿Qué son los microservicios?
+- Monolítico vs Microservicios
+- Beneficios y desafíos
+- Cuándo usar microservicios
 
-#### Day 3-4: Service Registry (Eureka)
-- Client-side vs Server-side discovery
-- Eureka architecture
-- Service registration and discovery
-- Health checks and heartbeats
+#### Día 3-4: Service Registry (Eureka)
+- Descubrimiento del lado del cliente vs servidor
+- Arquitectura de Eureka
+- Registro y descubrimiento de servicios
+- Comprobaciones de salud y latidos (heartbeats)
 
-#### Day 5: Configuration Management
-- Centralized vs distributed config
+#### Día 5: Gestión de Configuración
+- Configuración centralizada vs distribuida
 - Spring Cloud Config Server
-- Property sources hierarchy
-- Dynamic refresh
+- Jerarquía de fuentes de propiedades
+- Refresco dinámico
 
-### Week 2: Communication & Resilience
+### Semana 2: Comunicación y Resiliencia
 
-#### Day 6-7: Service-to-Service Communication
-- Synchronous (REST, HTTP)
-- Asynchronous (messaging)
-- OpenFeign for declarative clients
-- Load balancing strategies
+#### Día 6-7: Comunicación Entre Servicios
+- Síncrona (REST, HTTP)
+- Asíncrona (mensajería)
+- OpenFeign para clientes declarativos
+- Estrategias de balanceo de carga
 
-#### Day 8-9: Resilience Patterns
-- Circuit Breaker pattern
-- Retry mechanisms
-- Timeout management
-- Fallback strategies
-- Bulkhead pattern
+#### Día 8-9: Patrones de Resiliencia
+- Patrón Circuit Breaker
+- Mecanismos de reintento
+- Gestión de timeouts
+- Estrategias de fallback
+- Patrón Bulkhead
 
-#### Day 10: API Gateway
-- Gateway responsibilities
-- Routing strategies
-- Request filtering
-- Security at gateway level
+#### Día 10: API Gateway
+- Responsabilidades del gateway
+- Estrategias de enrutamiento
+- Filtrado de peticiones
+- Seguridad a nivel de gateway
 
-### Week 3: Advanced Topics
+### Semana 3: Temas Avanzados
 
-#### Day 11-12: Distributed Tracing
-- Request correlation
-- Zipkin integration
-- Trace visualization
-- Performance analysis
+#### Día 11-12: Trazabilidad Distribuida
+- Correlación de peticiones
+- Integración con Zipkin
+- Visualización de trazas
+- Análisis de rendimiento
 
-#### Day 13-14: Async Communication
-- Event-driven architecture
-- RabbitMQ integration
+#### Día 13-14: Comunicación Asíncrona
+- Arquitectura orientada a eventos
+- Integración con RabbitMQ
 - Spring Cloud Bus
-- Configuration refresh
+- Refresco de configuración
 
-#### Day 15: Monitoring & Operations
-- Health checks
-- Metrics collection
-- Alerting strategies
-- Production deployment
+#### Día 15: Monitorización y Operaciones
+- Comprobaciones de salud
+- Recolección de métricas
+- Estrategias de alertas
+- Despliegue en producción
 
 ---
 
-## 🔗 Service Communication Patterns
+## 🔗 Patrones de Comunicación Entre Servicios
 
-### Synchronous (Request-Response)
-
+### Síncrona (Petición-Respuesta)
 ```java
-// Using OpenFeign
+// Usando OpenFeign
 @FeignClient(name = "department-service")
 public interface DepartmentClient {
     @GetMapping("/departments/{id}")
     Department getDepartment(@PathVariable Long id);
 }
 
-// Usage
+// Uso
 @Service
 public class EmployeeService {
     @Autowired
@@ -479,10 +470,9 @@ public class EmployeeService {
 }
 ```
 
-### Asynchronous (Event-Driven)
-
+### Asíncrona (Orientada a Eventos)
 ```java
-// Producer - Employee Service
+// Productor - Employee Service
 @Service
 public class EmployeeService {
     @Autowired
@@ -491,19 +481,19 @@ public class EmployeeService {
     public void createEmployee(Employee emp) {
         employeeRepo.save(emp);
         
-        // Publish event
+        // Publicar evento
         rabbitTemplate.convertAndSend("employee.exchange", 
             "employee.created", 
             new EmployeeCreatedEvent(emp));
     }
 }
 
-// Consumer - Notification Service
+// Consumidor - Notification Service
 @Service
 public class NotificationService {
     @RabbitListener(queues = "employee.queue")
     public void handleEmployeeCreated(EmployeeCreatedEvent event) {
-        // Send email notification
+        // Enviar notificación por email
         sendNotification(event.getEmployee());
     }
 }
@@ -511,69 +501,67 @@ public class NotificationService {
 
 ---
 
-## 🏷️ Topics Applied
+## 🏷️ Topics Aplicados
 
-All projects tagged with:
-- `#microservices` - Microservices architecture
-- `#spring-cloud` - Spring Cloud framework
-- `#learning` - Learning material
-- `#tutorial` - Tutorial style
-- `#java` - Java language
-- `#spring-boot` - Spring Boot framework
-- `#containers` - Docker/containerization
+Todos los proyectos etiquetados con:
+- `#microservicios` - Arquitectura de microservicios
+- `#spring-cloud` - Framework Spring Cloud
+- `#aprendizaje` - Material de aprendizaje
+- `#tutorial` - Estilo tutorial
+- `#java` - Lenguaje Java
+- `#spring-boot` - Framework Spring Boot
+- `#contenedores` - Docker/contenerización
 
-Hub project also tagged with:
-- `#collection` - Recopilatory hub
-- `#architecture` - Architecture patterns
-- `#distributed-systems` - Distributed systems
-
----
-
-## 📊 Project Stats
-
-| Metric | Value |
-|--------|-------|
-| **Total Projects** | 4 |
-| **Microservices** | 3-4 |
-| **Infrastructure Services** | 3-4 |
-| **Technologies** | Spring Cloud, Eureka, Config Server, Gateway |
-| **Learning Level** | Advanced |
-| **Estimated Learning Time** | 3 weeks |
+Proyecto hub también etiquetado con:
+- `#coleccion` - Hub recopilatorio
+- `#arquitectura` - Patrones de arquitectura
+- `#sistemas-distribuidos` - Sistemas distribuidos
 
 ---
 
-## 🎓 Learning Outcomes
+## 📊 Estadísticas del Proyecto
 
-After completing this collection, you'll understand:
-
-- ✅ Microservices architecture principles
-- ✅ Service registry and discovery (Eureka)
-- ✅ Centralized configuration management
-- ✅ API Gateway patterns and routing
-- ✅ Service-to-service communication (sync & async)
-- ✅ Resilience patterns (Circuit Breaker, Retry, etc.)
-- ✅ Distributed tracing with Zipkin
-- ✅ Load balancing strategies
-- ✅ Event-driven communication with messaging
-- ✅ Configuration refresh without redeployment
-- ✅ Docker containerization and orchestration
-- ✅ Deployment strategies for microservices
-- ✅ Monitoring and observability
-- ✅ Security in distributed systems
+| Métrica | Valor |
+|---------|-------|
+| **Total Proyectos** | 4 |
+| **Microservicios** | 3-4 |
+| **Servicios de Infraestructura** | 3-4 |
+| **Tecnologías** | Spring Cloud, Eureka, Config Server, Gateway |
+| **Nivel de Aprendizaje** | Avanzado |
+| **Tiempo Estimado de Aprendizaje** | 3 semanas |
 
 ---
 
-## ⚙️ Configuration Management
+## 🎓 Resultados de Aprendizaje
 
-### Config Server Setup
+Después de completar esta colección, comprenderás:
+- ✅ Principios de arquitectura de microservicios
+- ✅ Registro y descubrimiento de servicios (Eureka)
+- ✅ Gestión centralizada de configuración
+- ✅ Patrones de API Gateway y enrutamiento
+- ✅ Comunicación entre servicios (síncrona y asíncrona)
+- ✅ Patrones de resiliencia (Circuit Breaker, Retry, etc.)
+- ✅ Trazabilidad distribuida con Zipkin
+- ✅ Estrategias de balanceo de carga
+- ✅ Comunicación orientada a eventos con mensajería
+- ✅ Refresco de configuración sin redespliegue
+- ✅ Contenerización con Docker y orquestación
+- ✅ Estrategias de despliegue para microservicios
+- ✅ Monitorización y observabilidad
+- ✅ Seguridad en sistemas distribuidos
 
+---
+
+## ⚙️ Gestión de Configuración
+
+### Configuración del Config Server
 ```properties
 # application.properties (Config Server)
 server.port=8888
 spring.cloud.config.server.git.uri=https://github.com/user/config-repo
 spring.cloud.config.server.git.clone-on-start=true
 
-# Served configs:
+# Configuraciones servidas:
 # - /application.properties
 # - /application-dev.properties
 # - /application-prod.properties
@@ -581,44 +569,43 @@ spring.cloud.config.server.git.clone-on-start=true
 # - /department-service.properties
 ```
 
-### Client Configuration
-
+### Configuración del Cliente
 ```properties
 # application.properties (Config Client)
 spring.application.name=employee-service
 spring.cloud.config.uri=http://localhost:8888
 spring.profiles.active=dev
 
-# Refresh config without restart:
+# Refrescar config sin reiniciar:
 # POST http://localhost:8081/actuator/refresh
 ```
 
 ---
 
-## 🔐 Security Considerations
+## 🔐 Consideraciones de Seguridad
 
-### Service-to-Service Security
-- Service credentials in Config Server
-- Network isolation within Docker network
-- TLS/SSL encryption for inter-service calls
-- OAuth2 for authentication
+### Seguridad Entre Servicios
+- Credenciales de servicio en Config Server
+- Aislamiento de red dentro de red Docker
+- Cifrado TLS/SSL para llamadas entre servicios
+- OAuth2 para autenticación
 
-### API Gateway Security
-- Authentication at gateway level
-- Rate limiting and throttling
-- Request validation and sanitization
-- CORS configuration
+### Seguridad del API Gateway
+- Autenticación a nivel de gateway
+- Rate limiting y throttling
+- Validación y sanitización de peticiones
+- Configuración CORS
 
-### Data Security
-- Encrypt sensitive data in transit
-- Database encryption at rest
-- Credential management (Spring Vault, AWS Secrets Manager)
+### Seguridad de Datos
+- Cifrar datos sensibles en tránsito
+- Cifrado de base de datos en reposo
+- Gestión de credenciales (Spring Vault, AWS Secrets Manager)
 
 ---
 
-## 🧪 Testing Microservices
+## 🧪 Testing de Microservicios
 
-### Unit Testing
+### Testing Unitario
 ```java
 @SpringBootTest
 class EmployeeServiceTest {
@@ -640,7 +627,7 @@ class EmployeeServiceTest {
 }
 ```
 
-### Integration Testing
+### Testing de Integración
 ```java
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 class EmployeeServiceIntegrationTest {
@@ -658,67 +645,67 @@ class EmployeeServiceIntegrationTest {
 }
 ```
 
-### Contract Testing
-- Pact or Spring Cloud Contract for service contracts
-- Ensure service compatibility
+### Testing de Contratos
+- Pact o Spring Cloud Contract para contratos de servicio
+- Asegurar compatibilidad entre servicios
 
 ---
 
-## 🔗 Related Collections
+## 🔗 Colecciones Relacionadas
 
-- [Event-Driven & Messaging](link) - Kafka, RabbitMQ patterns
-- [Spring Boot Basics](https://github.com/Cortadai/spring-boot-basics) - Foundation concepts
-- [Code Generation Tools](link) - WSDL, OpenAPI generation
-
----
-
-## 💡 Best Practices
-
-### 1. Service Boundaries
-- Each service has single responsibility
-- Clear API contracts
-- Independent data storage
-- Loose coupling, high cohesion
-
-### 2. Configuration Management
-- Externalize all configuration
-- Environment-specific properties
-- Secure credential handling
-- Version control for configs
-
-### 3. Communication
-- Prefer async over sync where possible
-- Implement timeouts and retries
-- Circuit breakers for resilience
-- Proper error handling
-
-### 4. Monitoring
-- Distributed tracing for requests
-- Metrics collection
-- Centralized logging
-- Alert thresholds
-
-### 5. Deployment
-- Containerize all services
-- Use container orchestration
-- Blue-green or canary deployments
-- Infrastructure as code
+- [Event-Driven & Messaging](https://github.com/Cortadai/event-driven-messaging-architecture) - Patrones Kafka, RabbitMQ
+- [Spring Boot Basics](https://github.com/Cortadai/spring-boot-basics) - Conceptos fundamentales
+- [Code Generation Tools](https://github.com/Cortadai/code-generation-tools) - Generación WSDL, OpenAPI
 
 ---
 
-## 📚 External Resources
+## 💡 Mejores Prácticas
 
-### Spring Cloud Official
-- [Spring Cloud Documentation](https://spring.io/projects/spring-cloud)
+### 1. Fronteras de Servicios
+- Cada servicio tiene responsabilidad única
+- Contratos de API claros
+- Almacenamiento de datos independiente
+- Bajo acoplamiento, alta cohesión
+
+### 2. Gestión de Configuración
+- Externalizar toda la configuración
+- Propiedades específicas por entorno
+- Manejo seguro de credenciales
+- Control de versiones para configuraciones
+
+### 3. Comunicación
+- Preferir asíncrona sobre síncrona donde sea posible
+- Implementar timeouts y reintentos
+- Circuit breakers para resiliencia
+- Manejo adecuado de errores
+
+### 4. Monitorización
+- Trazabilidad distribuida para peticiones
+- Recolección de métricas
+- Logging centralizado
+- Umbrales de alertas
+
+### 5. Despliegue
+- Contenerizar todos los servicios
+- Usar orquestación de contenedores
+- Despliegues blue-green o canary
+- Infraestructura como código
+
+---
+
+## 📚 Recursos Externos
+
+### Spring Cloud Oficial
+- [Documentación Spring Cloud](https://spring.io/projects/spring-cloud)
 - [Spring Cloud Netflix](https://spring.io/projects/spring-cloud-netflix)
 - [Spring Cloud Config](https://spring.io/projects/spring-cloud-config)
 
-### Microservices Patterns
+### Patrones de Microservicios
 - [microservices.io](https://microservices.io/)
-- [Pattern: Service Registry](https://microservices.io/patterns/service-registry.html)
-- [Pattern: API Gateway](https://microservices.io/patterns/apigateway.html)
+- [Patrón: Service Registry](https://microservices.io/patterns/service-registry.html)
+- [Patrón: API Gateway](https://microservices.io/patterns/apigateway.html)
 
-### Tools & Platforms
+### Herramientas y Plataformas
 - [Docker](https://www.docker.com/)
 - [Kubernetes](https://kubernetes.io/)
 - [Zipkin](https://zipkin.io/)
@@ -726,18 +713,19 @@ class EmployeeServiceIntegrationTest {
 
 ---
 
-## 📬 Notes
+## 📬 Notas
 
-These projects demonstrate complete microservices architectures using Spring Cloud.
+Estos proyectos demuestran arquitecturas completas de microservicios usando Spring Cloud.
 
-**springboot-microservices** is recommended for modern development (latest Spring Cloud).
-**springcloud** provides reference for legacy Greenwich version but remains fully functional.
+**springboot-microservices** es recomendado para desarrollo moderno (última versión de Spring Cloud).
 
-Perfect for:
-- ✅ Understanding microservices patterns
-- ✅ Learning distributed systems design
-- ✅ Enterprise architecture implementation
-- ✅ Production-ready service design
-- ✅ Team learning and reference
+**springcloud** proporciona referencia para la versión legacy Greenwich pero permanece totalmente funcional.
 
-*Last updated: November 2025*
+Perfecto para:
+- ✅ Entender patrones de microservicios
+- ✅ Aprender diseño de sistemas distribuidos
+- ✅ Implementación de arquitectura empresarial
+- ✅ Diseño de servicios listos para producción
+- ✅ Aprendizaje y referencia de equipo
+
+*Última actualización: Noviembre 2025*
